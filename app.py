@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import datetime as dt
 import streamlit as st
-import json
+import os
 import altair as alt
 
 def get_ec_data():
@@ -28,9 +28,7 @@ def get_ec_data():
 
 def get_spreadsheet():
     #Get data from Google Spread sheet
-    with open('secret.json') as f:
-        secret = json.load(f)
-    GAS_URL = secret['GAS_url']
+    GAS_URL = os.getenv['GAS_url']
     response_get = requests.get(GAS_URL)
     data_matrix = response_get.json()  # GASから2次元配列が返ってくる
 
