@@ -28,7 +28,7 @@ def get_ec_data():
 
 def get_spreadsheet():
     #Get data from Google Spread sheet
-    GAS_URL = os.getenv['GAS_url']
+    GAS_URL = os.getenv('GAS_url')
     response_get = requests.get(GAS_URL)
     data_matrix = response_get.json()  # GASから2次元配列が返ってくる
 
